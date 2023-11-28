@@ -65,7 +65,7 @@ export default {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .main-page__header {
     height: 60px;
   }

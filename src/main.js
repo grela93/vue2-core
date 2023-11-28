@@ -8,7 +8,9 @@ import Vuex from "vuex";
 import App from "./App.vue";
 import Assets from "./assets";
 import router from "./router";
-import "./styles/index.css";
+import("@/styles/index.css").then(() => {
+  import("@/styles/custom-bootstrap.scss");
+});
 
 library.add(Assets.solidIcon);
 Vue.component("fa-icon", FontAwesomeIcon);

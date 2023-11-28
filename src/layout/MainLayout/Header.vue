@@ -69,7 +69,7 @@ export default {
   object-fit: contain;
 }
 
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .header-container,
   .navbar {
     height: 100%;
