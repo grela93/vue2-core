@@ -13,7 +13,7 @@ import("@/styles/index.css").then(() => {
 });
 
 library.add(Assets.solidIcon);
-Vue.component("fa-icon", FontAwesomeIcon);
+Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 Vue.use(BootstrapVue);
 Vue.use(Vuex);

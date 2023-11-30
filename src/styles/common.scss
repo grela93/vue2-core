@@ -1,4 +1,15 @@
 // Button
-.common-button {
-  background: var(--primary-color) !important;
+.btn-outline {
+  display: flex;
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+
+  border-radius: 12px;
+  border: 1px solid #eeeeee;
+
+  &:hover {
+    background: var(--primary-color-500);
+  }
 }

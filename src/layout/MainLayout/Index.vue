@@ -28,12 +28,14 @@
 
 <script>
 import TransitionFade from "@/components/animation/TransitionFade.vue";
+import useWindowSize from "@/composables/useWindowSize";
 import Header from "./Header.vue";
 import Sidebar from "./Sidebar.vue";
 
 export default {
   name: "main-layout",
   components: { Header, TransitionFade, Sidebar },
+  mixins: [useWindowSize],
   data() {
     return {
       isCollapsed: false,
@@ -43,6 +45,17 @@ export default {
     toggleCollapse() {
       this.isCollapsed = !this.isCollapsed;
     },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.$watch(
+        () => this.windowSize,
+        (newValue) => {
+          this.isCollapsed = newValue.width > 991 ? false : true;
+        },
+        { immediate: true, deep: true }
+      );
+    });
   },
 };
 </script>
@@ -54,7 +67,7 @@ export default {
 
   &__main-content {
     width: calc(100vw - var(--sidebar-width));
-    padding: 24px 64px;
+    padding: 40px;
     background: var(--primary-bg-color);
   }
 }

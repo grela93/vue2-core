@@ -14,7 +14,7 @@
             :class="[route.path === $route.path ? 'active' : '']"
             :to="route.path"
           >
-            <fa-icon :icon="route.meta.icon" />
+            <font-awesome-icon :icon="route.meta.icon" />
 
             <span class="pl-3" :class="isCollapsed ? 'd-none' : ''">
               {{ route.meta.title }}
@@ -27,9 +27,12 @@
           class="sidebar-link text-center"
           @click="$emit('update:isCollapsed')"
         >
-          <fa-icon :icon="['fas', 'angles-right']" v-if="isCollapsed" />
+          <font-awesome-icon
+            :icon="['fas', 'angles-right']"
+            v-if="isCollapsed"
+          />
 
-          <fa-icon :icon="['fas', 'angles-left']" v-else />
+          <font-awesome-icon :icon="['fas', 'angles-left']" v-else />
         </div>
       </div>
     </nav>
