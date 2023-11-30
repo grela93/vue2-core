@@ -5,7 +5,7 @@
       style="background-color: var(--white-color)"
     >
       <router-link
-        class="navbar-brand d-flex align-items-center justify-content-center"
+        class="header-left d-flex align-items-center justify-content-center"
         to="/dashboard"
       >
         <img class="header-logo" :src="logoImg" alt="My Image" style="" />
@@ -26,7 +26,7 @@
       </button>
 
       <div
-        class="collapse navbar-collapse justify-content-end"
+        class="header-right collapse navbar-collapse justify-content-end"
         id="navbarSupportedContent"
       >
         <form class="form-inline my-2 my-lg-0">
@@ -58,15 +58,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.navbar-brand {
-  font-size: var(--text-xxl);
-  font-weight: var(--font-semibold);
-}
+.header-container {
+  height: 50px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 
-.header-logo {
-  width: 30px;
-  border-radius: 2px;
-  object-fit: contain;
+  .header-left {
+    font-size: var(--text-xxl);
+    font-weight: var(--font-semibold);
+  }
+
+  .header-logo {
+    width: 30px;
+    border-radius: 2px;
+    object-fit: contain;
+  }
 }
 
 @media (min-width: 768px) {

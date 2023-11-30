@@ -6,15 +6,19 @@
     </div>
 
     <!-- Body -->
-    <div class="main-page">
-      <Sidebar class="main-page__sidebar" />
+    <div class="main-page" :class="[isCollapsed ? 'main-page-collapsed' : '']">
+      <Sidebar
+        class="main-page__sidebar"
+        :isCollapsed="isCollapsed"
+        @update:isCollapsed="toggleCollapse()"
+      />
 
       <div class="main-page__main-content">
-        <router-view v-slot="{ Component }">
-          <TransitionFade>
+        <TransitionFade>
+          <router-view v-slot="{ Component }">
             <component :is="Component"></component>
-          </TransitionFade>
-        </router-view>
+          </router-view>
+        </TransitionFade>
       </div>
     </div>
 
@@ -30,33 +34,23 @@ import Sidebar from "./Sidebar.vue";
 export default {
   name: "main-layout",
   components: { Header, TransitionFade, Sidebar },
+  data() {
+    return {
+      isCollapsed: false,
+    };
+  },
+  methods: {
+    toggleCollapse() {
+      this.isCollapsed = !this.isCollapsed;
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 .main-page {
-  // display: grid;
-  // grid-template-columns: var(--sidebar-width) 1fr;
   display: flex;
   background: var(--primary-bg-color);
-
-  &__header {
-    height: 50px;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-  }
-
-  &__sidebar {
-    position: sticky;
-    top: 60px;
-    left: 0;
-    height: calc(100vh - 60px);
-    overflow-x: hidden;
-    overflow-y: auto;
-    white-space: nowrap;
-  }
 
   &__main-content {
     width: calc(100vw - var(--sidebar-width));
@@ -65,9 +59,32 @@ export default {
   }
 }
 
+.main-page-collapsed {
+  .main-page {
+    &__sidebar {
+      width: var(--sidebar-collapse-width);
+      transition: width 0.3s ease;
+      // animation: rotate-fly 5s linear infinite;
+    }
+
+    &__main-content {
+      width: 100%;
+    }
+  }
+}
+
 @media (min-width: 768px) {
   .main-page__header {
     height: 60px;
+  }
+}
+
+@keyframes rotate-fly {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(100vw) rotate(360deg);
   }
 }
 </style>

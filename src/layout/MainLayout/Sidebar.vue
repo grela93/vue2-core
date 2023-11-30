@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="sidebar-container shadow"
-    :class="isCollapsed ? 'sidebar-collapse' : ''"
-  >
+  <div class="sidebar-container shadow">
     <nav class="navbar navbar-default h-100" role="navigation">
       <div
         class="h-100 d-flex flex-column justify-content-between"
@@ -26,7 +23,10 @@
         </div>
 
         <!-- Collapse sidebar -->
-        <div class="sidebar-link text-center" @click="toggleCollapse()">
+        <div
+          class="sidebar-link text-center"
+          @click="$emit('update:isCollapsed')"
+        >
           <fa-icon :icon="['fas', 'angles-right']" v-if="isCollapsed" />
 
           <fa-icon :icon="['fas', 'angles-left']" v-else />
@@ -41,13 +41,12 @@ import { appRoutes } from "@/router/routes";
 
 export default {
   name: "layout-sidebar",
-  data() {
-    return { routes: appRoutes, isCollapsed: false };
+  props: {
+    isCollapsed: Boolean,
   },
-  methods: {
-    toggleCollapse() {
-      this.isCollapsed = !this.isCollapsed;
-    },
+  emits: ["update:isCollapsed"],
+  data() {
+    return { routes: appRoutes };
   },
 };
 </script>
@@ -59,18 +58,19 @@ export default {
 }
 
 .sidebar-container {
+  position: sticky;
+  top: 60px;
+  left: 0;
+  height: calc(100vh - 60px);
   width: var(--sidebar-width);
   padding: 24px 0 0;
   background: var(--primary-color-500);
   transition: width 0.3s ease;
-
-  &.sidebar-collapse {
-    width: var(--sidebar-collapse-width);
-    // animation: rotate-fly 5s linear infinite;
-  }
+  overflow-x: hidden;
+  overflow-y: auto;
+  white-space: nowrap;
 
   .sidebar-link {
-    width: 100%;
     height: 56px;
     padding: 16px 24px;
     color: var(--strong-primary-color);
@@ -90,15 +90,6 @@ export default {
 
       color: var(--white-color);
     }
-  }
-}
-
-@keyframes rotate-fly {
-  0% {
-    transform: translateX(0) rotate(0deg);
-  }
-  100% {
-    transform: translateX(100vw) rotate(360deg);
   }
 }
 </style>
