@@ -13,7 +13,9 @@
 
 // color
 $dark: #9f9f9f;
-$green: #10c4a3;
+$green: #228d91;
+// #10c4a3
+// #228D91
 $black: #3c3c3c;
 $gray9F9F9F: #9f9f9f;
 $grayCED2D5: #ced2d5;
@@ -97,6 +99,16 @@ $w3: "Regular";
 .hiragino-fs-20-regular {
   @include font($fs-24, $lh-32, $w3);
 }
+
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    "success": $green,
+    "danger": $red,
+    "dark": $black,
+  ),
+  $theme-colors
+);
 
 // font-family
 // import sau
