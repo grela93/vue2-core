@@ -1,6 +1,120 @@
-// @import "../../node_modules/bootstrap/scss/bootstrap.scss";
-@import "./common.scss";
-
-.card {
-  border-radius: 10px;
+// font
+@mixin font(
+  $font-size,
+  $line-height: 22px,
+  $font-weight: normal,
+  $font-family: initial
+) {
+  font-family: $font-family, sans-serif;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
 }
+
+// color
+$dark: #9f9f9f;
+$green: #10c4a3;
+$black: #3c3c3c;
+$gray9F9F9F: #9f9f9f;
+$grayCED2D5: #ced2d5;
+$grayECEFF2: #eceff2;
+$grayF8F8F8: #f8f8f8;
+$navy: #616f7b;
+$white: #ffffff;
+$red: #d64d62;
+
+// px
+$unit: 10px;
+
+// font-size
+$fs-12: $unit * 1.2;
+$fs-14: $unit * 1.4;
+$fs-16: $unit * 1.6;
+$fs-18: $unit * 1.8;
+$fs-20: $unit * 2;
+$fs-21: $unit * 2.1;
+$fs-24: $unit * 2.4;
+$fs-28: $unit * 2.8;
+
+// line-height
+$lh-18: $unit * 1.8;
+$lh-21: $unit * 2.1;
+$lh-24: $unit * 2.4;
+$lh-28: $unit * 2.8;
+$lh-30: $unit * 3;
+$lh-32: $unit * 3.2;
+
+// font-weight
+$w6: "Bold";
+$w3: "Regular";
+
+// text style
+
+// bold
+.hiragino-fs-12-bold {
+  @include font($fs-12, $lh-18, $w6);
+}
+.hiragino-fs-14-bold {
+  @include font($fs-14, $lh-21, $w6);
+}
+
+.hiragino-fs-16-bold {
+  @include font($fs-16, $lh-24, $w6);
+}
+
+.hiragino-fs-18-bold {
+  @include font($fs-16, $lh-28, $w6);
+}
+
+.hiragino-fs-20-bold {
+  @include font($fs-20, $lh-30, $w6);
+}
+
+.hiragino-fs-20-bold {
+  @include font($fs-24, $lh-32, $w6);
+}
+
+// regular
+.hiragino-fs-12-regular {
+  @include font($fs-12, $lh-18, $w3);
+}
+.hiragino-fs-14-regular {
+  @include font($fs-14, $lh-21, $w3);
+}
+
+.hiragino-fs-16-regular {
+  @include font($fs-16, $lh-24, $w3);
+}
+
+.hiragino-fs-18-regular {
+  @include font($fs-16, $lh-28, $w3);
+}
+
+.hiragino-fs-20-regular {
+  @include font($fs-20, $lh-30, $w3);
+}
+
+.hiragino-fs-20-regular {
+  @include font($fs-24, $lh-32, $w3);
+}
+
+// font-family
+// import sau
+
+//@font-face {
+//  font-family: 'Murecho';
+//  font-weight: 400;
+//  font-display: swap;
+//  src: url('assets/fonts/Murecho-Regular.ttf') format('truetype');
+//}
+
+//@font-face {
+//  font-family: 'Murecho';
+//  font-weight: 700;
+//  font-display: swap;
+//  src: url('assets/fonts/Murecho-Bold.ttf') format('truetype');
+//}
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../node_modules/bootstrap-vue/dist/bootstrap-vue.css";
+@import "./common.scss";
