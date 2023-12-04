@@ -69,6 +69,7 @@
         title="Success toast"
         content="That is success toast"
         variant="success"
+        toaster="b-toaster-top-full"
       />
 
       <CommonToast
@@ -84,6 +85,8 @@
       <h4>Select</h4>
 
       <CommonSelect v-model="selected" :options="options" />
+
+      <CommonSelect2 class="mt-3" />
     </b-card>
 
     <!-- Range Time Input -->
@@ -121,6 +124,7 @@ import CommonButton from "@/components/common/CommonButton.vue";
 import CommonModal from "@/components/common/CommonModal.vue";
 import CommonRangeTime from "@/components/common/CommonRangeTime.vue";
 import CommonSelect from "@/components/common/CommonSelect.vue";
+import CommonSelect2 from "@/components/common/CommonSelect2.vue";
 import CommonToast from "@/components/common/CommonToast.vue";
 
 export default {
@@ -131,6 +135,7 @@ export default {
     CommonToast,
     CommonSelect,
     CommonRangeTime,
+    CommonSelect2,
   },
   data() {
     return {

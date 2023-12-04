@@ -4,7 +4,9 @@ import {
   faArrowLeft,
   faArrowRight,
   faChartLine,
+  faCheck,
   faChevronDown,
+  faChevronUp,
   faList,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -17,5 +19,7 @@ export default {
     faAnglesLeft,
     faAnglesRight,
     faChevronDown,
+    faChevronUp,
+    faCheck,
   ],
 };

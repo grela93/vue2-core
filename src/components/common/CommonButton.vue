@@ -22,7 +22,6 @@ export default {
     content: {
       type: String,
       default: "検索",
-      required: true,
     },
     variant: {
       type: String,

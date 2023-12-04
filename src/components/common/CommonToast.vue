@@ -1,9 +1,9 @@
 <template>
   <b-toast
-    :class="[variant === 'success' ? 'custom-success-toast' : '']"
     :id="id"
     :title="computedTitle"
     :variant="variant"
+    :toaster="toaster"
     :auto-hide-delay="autoHideDelay"
     :solid="solid"
   >
@@ -22,6 +22,10 @@ export default {
       type: String,
       default: "default",
     },
+    toaster: {
+      type: String,
+      default: "b-toaster-top-center",
+    },
     autoHideDelay: {
       type: Number,
       default: 5000,
@@ -39,8 +43,4 @@ export default {
 };
 </script>
 
-<style>
-/* .custom-success-toast {
-  background: #28a745;
-} */
-</style>
+<style lang="scss"></style>

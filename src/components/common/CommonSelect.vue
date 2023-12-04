@@ -4,7 +4,11 @@
     :value="computedSelected"
     :options="options"
     @change="$emit('update:selected')"
-  ></b-form-select>
+  >
+    <!-- <template #prepend>
+      <font-awesome-icon :icon="['fas', 'check']" />
+    </template> -->
+  </b-form-select>
 </template>
 
 <script>
